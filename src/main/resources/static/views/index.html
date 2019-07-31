@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<hr/>
+<div class="container" ng-controller="UserController">
+    <div class="row">
+        <label>User</label> <input type="text" ng-model="userDto.userName" class="input-sm spacing"/>
+        <button ng-click="saveUser()" class="btn btn-sm btn-info">Save User</button>
+    </div>
+    <hr/>
+    <hr/>
+    <div class="row" ng-repeat="user in allUsers">
+        <div class="">
+            <span  editable-text="user.userName" onbeforesave="updateUser(user,$data)">{{ user.userName || "empty" }}</span><button ng-click="deluser( user, $data )">X</button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/xeditable.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/UserController.js?1"></script>
+<script src="js/app/UserService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+<link rel="stylesheet" href="css/lib/xeditable.min.css"/>
+
+</html>
